@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.3'
+        classpath 'com.android.tools.build:gradle:7.4.1'
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.42'
     }
 }
@@ -21,11 +21,13 @@ task clean(type: Delete) {
 }
 allprojects {
     project.ext {
-        minSdkVersion = 23
+        minSdkVersion = 24
         targetSdkVersion = 33
         compileSdkVersion = 33
     }
+
 }
+
 ext {
     coreVersion = "1.8.0"
     appCompatVersion = "1.4.2"
