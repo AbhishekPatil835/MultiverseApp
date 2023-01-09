@@ -110,6 +110,7 @@ class MultiverseActivity : AppCompatActivity() {
                                 val multiverseData = (result.data).multiverseResponse
 
 
+
                                 languageRecyclerAdapter.setUpDatedData(multiverseData.spokenLanguages)
                                 productionRecyclerAdapter.setUpDatedData(multiverseData.productionCompanies)
                                 binding.apply {
@@ -124,6 +125,7 @@ class MultiverseActivity : AppCompatActivity() {
                                         .placeholder(R.drawable.langaude_background)
                                         .into(imageViewPoster)
 
+                                    textViewTitle.text = multiverseData.originalTitle
                                     val time = formatHoursAndMinutes(multiverseData.runtime)
                                     textViewOverView.text = multiverseData.overview
                                     textViewGenre.text = getString(R.string.text_genre_time_date , multiverseData.releaseDate , genres1 , time)
