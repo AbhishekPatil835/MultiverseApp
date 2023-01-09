@@ -15,12 +15,18 @@ android {
         targetSdk project.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        aarMetadata {
+            minCompileSdk = 23
+        }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         debug {
+            aarMetadata {
+                minCompileSdk = 23
+            }
             minifyEnabled false
             shrinkResources false
             zipAlignEnabled false
@@ -28,6 +34,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
+            aarMetadata {
+            minCompileSdk = 23
+        }
             minifyEnabled true
             shrinkResources true
             zipAlignEnabled true
@@ -51,7 +60,7 @@ hilt {
 }
 dependencies {
 
-
+    implementation project(':feature')
     implementation androidxLibraries.coreKtx
     implementation androidxLibraries.appCompat
     implementation androidxLibraries.constraintLayout
