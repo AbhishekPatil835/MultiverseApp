@@ -1,0 +1,93 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.bookmyshow.multiverseofmovies'
+    compileSdk project.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.bookmyshow.multiverseofmovies"
+        minSdk project.ext.minSdkVersion
+        targetSdk project.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            applicationIdSuffix ".debug"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+hilt {
+    enableAggregatingTask = true
+}
+dependencies {
+
+
+    implementation androidxLibraries.coreKtx
+    implementation androidxLibraries.appCompat
+    implementation androidxLibraries.constraintLayout
+    implementation androidxLibraries.activityKtx
+    implementation androidxLibraries.browser
+    implementation materialLibraries.material
+    testImplementation testLibraries.junit
+    androidTestImplementation testLibraries.testJunit
+    androidTestImplementation testLibraries.textEspresso
+
+    // Hilt
+    implementation hiltLibraries.hiltAndroid
+    kapt hiltLibraries.hiltCompiler
+
+    // Rx
+    implementation commonLibraries.rxJava
+    implementation commonLibraries.rxKotlin
+    implementation commonLibraries.rxAndroid
+
+    //Networking Dependencies
+    implementation networkLibraries.retrofit
+    implementation networkLibraries.retrofitConverterGson
+    implementation networkLibraries.retrofitConverterScalar
+    implementation networkLibraries.retrofitRxJava3Adapter
+    implementation networkLibraries.okhttp
+    implementation networkLibraries.okhttpInterceptor
+
+    //Chucker for live Http logging
+    debugImplementation networkLibraries.chuckerDebug
+    releaseImplementation networkLibraries.chuckerRelease
+
+    // Common
+    implementation squareLibraries.timber
+
+    //Save Image from URL Glide Libraries
+    implementation glideLibraries.glide
+    annotationProcessor glideLibraries.glideCompiler
+
+}

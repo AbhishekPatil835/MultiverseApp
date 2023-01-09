@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Multiverse of Movies</string>
+    <string name="read_more">Read more</string>
+
+    <string name="less">less</string>
+    <string name="text_genre_time_date">%1$s • %2$s • %3$s</string>
+    <string name="text_ratings"><font color = "#000000"> %1$s /10 </font></string>
+
+    <string name="text_votes">(%1$s votes)</string>
+    <string name="book_tickets">Book Tickets</string>
+    <string name="production_companies">Production Companies</string>
+    <string name="crew">Crew</string>
+    <string name="cast">Cast</string>
+    <string name="go_to_homepage_of_movie">Go to homepage of movie</string>
+</resources>
